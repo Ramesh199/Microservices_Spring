@@ -1,10 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
 <title>PlantPlaces.com</title>
 </head>
 <body>
 Welcome to my homepage
+<br>
+Your specimen is:
+<p th:text="${specimenDTO}" />
+<form action="#" th:action="@{/savespecimen}" th:object="${specimenDTO}" method="GET">
+	Lattitude: <input type="text" name="lattitude" th:field="*{lattitude}" /><br/>
+	Longitude: <input type="text" name="longitude" th:field="*{longitude}" /><br/>
+	Description: <input type="text" name="description" th:field="*{description}" /><br/>
+	PlantId: <input type="text" name="plantId" th:field="*{plantId}" /><br/>
+	<button name="submit" type="submit" value="0">Submit</button>	
+</form>
 </body>
 </html>
